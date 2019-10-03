@@ -1,18 +1,15 @@
 # Herd Immunity Simulation by Aloysha d'Onaly & Anthony Sean Protho
+# Virus Name: "Tuberculosis" Moratlity Rate: "67%" Repo Rate: "5.6(or 32.94%)"
 
 We're going to create a basic simulation of herd immunity by modeling how a virus moves through a population where some (but not all) of a population is vaccinated against this virus.
 
 ## Goals
 
-* Finish the code in these files to create a working simulation that creates log files of major events.  
-* Design your program to follow the rules of the simulation.
-* Get your data for virus name, mortality rate, and reproductive rate from [this Guardian article](https://www.theguardian.com/news/datablog/ng-interactive/2014/oct/15/visualised-how-ebola-compares-to-other-infectious-diseases).  
-^^^^^^^^^^^Virus Name: "Tuberculosis" Moratlity Rate: "67%" Repo Rate: "5.6"^^^^^^^^^^^^^^^^^^^^^^
 * During every time step of the simulation, **every sick person** should randomly interact with **100 other people** in the population. The chance of a sick person infecting a person that they interact with is the virus's reproductive rate.  Example: if a virus has a reproductive rate of 15, then, on average, a sick person should infect 15 of the 100 people they interact with during that time step.
 
 ### Rules
 
-1. A sick person only has a chance at infecting healthy, unvaccinated people they encounter.  
+1. A sick person only has a chance at infecting healthy, **unvaccinated** people they encounter.  
 2. An infected person cannot infect a vaccinated person.  This still counts as an interaction.  
 3. An infected person cannot infect someone that is already infected.  This still counts as an interaction.
 4. At the end of a time step, an infected person will either die of the infection or get better.  The chance they will die is the percentage chance stored in mortality_rate.  
@@ -63,8 +60,6 @@ Collaboration is encouraged, but be sure that you typed in all the code yourself
 
 *Found a bug or a problem? Contact the course instructors or teaching assistants!*
 
-The template code was written in a cottage on the coast of Ireland with spotty power during the strongest hurricane Ireland has seen in 61 years, \[Editor's note: this is 100% true\] so... **there are probably some bugs in the template code**. If you think something doesn't make sense, double check with your classmates and/or the instructor.  If you feel the need to modify the template code to make it work another way, that's totally fine! The template code is there to help you, but it isn't a requirement that you use all of it.
-
 ## Project Completion
 
 For this project to be considered complete, you need to add your repo link to the course tracker. Please do not change the random seed set in the Simulation class! It is currently set to 42, and we will use this to double check that your simulation works and spits out the expected results.
@@ -76,11 +71,12 @@ For this project to be considered complete, you need to add your repo link to th
   * At least 1 log file generated from running your simulation.
   * `simulation_test.py` file should be created that allows for testing the simulation.
   * `logger_test.py` file should be created that allows for the testing of the logger class.
-  * Answers to the questions asked above listed in a file named `answers.txt`.
+  * Answers to the questions asked in `answers.txt`.
 
 ### Stretch Challenges
 
 You'll find some of the smaller, individual stretch challenges contained with the comments of the code on the logger class.  Other stretch challenges include:
 
-  * Extending functionality so that we can test the spread of multiple viruses through a given population at the same time. (Difficulty Level: Hard)
   * Create a Visualizer class that can spit out visualizations of the spread of the virus based on the log files of a simulation.  HINT: You'll want to use Matplotlib for visualization stuff, because its easy to use and generally awesome at this sort of thing.  You may also want to consider using a library like Pandas for organizing and cleaning your data in a more professional way, especially if you want to visualize answers to more complex questions.  Matplotlib and Pandas play very nicely together! (Difficulty Level: Medium)
+  * Extending functionality so that we can test the spread of multiple viruses through a given population at the same time. (Difficulty Level: Hard)
+  
