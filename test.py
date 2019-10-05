@@ -35,7 +35,8 @@ def test_writen_metadata():
 def test_log_interaction():
     pass
 
-def test_log_infection_survival(self, person, did_die_from_infection):
+def test_log_infection_survival():# the params are: self, person, did_die_from_infection
+    #however these params are not necissarily needed
     pass
 
 def test_log_time_step():
@@ -44,15 +45,11 @@ def test_log_time_step():
 
 '''Person Class Tests! (person.py)''' 
 def test_is_alive():
-    pass
-
-def test_infection_state():
-    pass
+    Person.is_alive = True
+    assert Person.is_alive
 
 
-''' These are simple tests to ensure that you are instantiating your Person class correctly. '''
 def test_vacc_person_instantiation():
-    # create some people to test if our init method works as expected
     person = Person(1, True)
     assert person._id == 1
     assert person.is_alive is True
@@ -62,47 +59,29 @@ def test_vacc_person_instantiation():
 
 def test_not_vacc_person_instantiation():
     person = Person(2, False)
-    # TODO: complete your own assert statements that test
-    # the values at each attribute
-    # assert ...
-    assert person == person # bad test, just gets rid of warning
-    pass
+    assert person._id ==  2
+    assert person.is_vaccinated == False
 
 
 def test_sick_person_instantiation():
-    # Create a Virus object to give a Person object an infection
+    # Creates a Virus object to give a Person object an infection
     virus = Virus("Dysentery", 0.7, 0.2)
-    # Create a Person object and give them the virus infection
+    # Creates a Person object and give them the virus infection
     person = Person(3, False, virus)
-    # TODO: complete your own assert statements that test
-    # the values at each attribute
-    # assert ...
-    assert person == person # bad test, just gets rid of warning
-    pass
-
+    assert person.infection == virus
+    assert person.infection.name == "Dysentery"
+    assert person.infection.repro_rate == 0.7
+    assert person.infection.mortality_rate == 0.2
 
 def test_did_survive_infection():
-    # TODO: Create a Virus object to give a Person object an infection
     virus = Virus("Dysentery", 0.7, 0.2)
-    # TODO: Create a Person object and give them the virus infection
     person = Person(4, False, virus)
 
     # Resolve whether the Person survives the infection or not
-    #suvived = person.did_survive_infection()
-    # Check if the Person survived or not *changed survived directly into person.did_survive_infection()
-        #as to fix bugs, however this is not best practice and should be reverted back when method
-        #has been made functional
     if person.did_survive_infection():
         assert person.is_alive is True
-        # TODO: Write your own assert statements that test
-        # the values of each attribute for a Person who survived
-        # assert ...
     else:
         assert person.is_alive is False
-        # TODO: Write your own assert statements that test
-        # the values of each attribute for a Person who did not survive
-        # assert ...
-        pass
 
 
 '''Simulation Class Tests! (simulation.py)'''

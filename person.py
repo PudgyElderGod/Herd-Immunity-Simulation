@@ -1,12 +1,14 @@
 import random
-random.seed(42)
+random.seed(42) 
+#random seed sets a random number so that it always stays the same, comment 
+#this out to test float values. Thx stack overflow for the clearification
 from virus import Virus
 
 
 class Person(object):
     ''' Person objects will populate the simulation. '''
 
-    def __init__(self, _id, is_vaccinated, infection=None):
+    def __init__(self, _id=None, is_vaccinated=None, infection=None):
         ''' We start out with is_alive = True, because we don't make vampires or zombies.
         All other values will be set by the simulation when it makes each Person object.
 
@@ -14,10 +16,10 @@ class Person(object):
         should instantiate a Virus object and set it as the value
         self.infection. Otherwise, self.infection should be set to None.
         '''
-        self._id = None  # int
+        self._id = _id  # int
         self.is_alive = True  # boolean
-        self.is_vaccinated = None  # boolean
-        self.infection = None  # Virus object or None
+        self.is_vaccinated = is_vaccinated  # boolean
+        self.infection = infection  # Virus object or None
 
     def did_survive_infection(self):
         ''' Generate a random number and compare to virus's mortality_rate.
@@ -25,8 +27,18 @@ class Person(object):
         If Person survives, they become vaccinated and they have no infection.
         Return a boolean value indicating whether they survived the infection.
         '''
+        chance = random.uniform(0, 1)
+        if chance < 0.67: # TODO: is object Virus.mortality_rate
         # Only called if infection attribute is not None.
-        # TODO:  Finish this method. Should return a Boolean
-        pass
+            if self.infection == None:
+        # TODO:  Finish this method. Should return a Boolean,
+        # TODO: Do we need to return None is off case senerios?
+                return False
+        return True
 
+
+#tests random floats in terminal
+# test_chance = random.uniform(0, 1)
+# print(test_chance)
 #tests moved into test.py to reorganize code
+#Thanks pynative for teaching me random.uniform
