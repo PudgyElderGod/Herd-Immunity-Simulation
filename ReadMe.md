@@ -1,4 +1,4 @@
-# Herd Immunity Simulation by Aloysha d'Onaly & Anthony Sean Protho
+# Herd Immunity Simulation by Aloysha 'Thom' d'Olanie & Anthony Sean Protho
 # Virus Name: "Tuberculosis" Moratlity Rate: "67%" Repo Rate: "5.6(or 32.94%)"
 
 We're going to create a basic simulation of herd immunity by modeling how a virus moves through a population where some (but not all) of a population is vaccinated against this virus.
