@@ -36,8 +36,8 @@ class Logger(object):
         # represent all the possible edge cases. Use the values passed along with each person,
         # along with whether they are sick or vaccinated when they interact to determine
         # exactly what happened in the interaction and create a String, and write to your logfile.
-        if random_person_sick = true:
-            did_infect = True
+        if random_person_sick == True:
+            did_infect == True
             return did_infect
 
     def log_infection_survival(self, person, did_die_from_infection):
