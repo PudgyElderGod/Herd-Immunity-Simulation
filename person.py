@@ -22,23 +22,20 @@ class Person(object):
         self.infection = infection  # Virus object or None
 
     def did_survive_infection(self):
-        ''' Generate a random number and compare to virus's mortality_rate.
-        If random number is smaller, person dies from the disease.
-        If Person survives, they become vaccinated and they have no infection.
-        Return a boolean value indicating whether they survived the infection.
-        '''
         chance = random.uniform(0, 1)
-        if chance < 0.67: # TODO: is object Virus.mortality_rate
+        if chance < self.infection.mortality_rate:
+            return False
         # Only called if infection attribute is not None.
-            if self.infection == None:
-        # TODO:  Finish this method. Should return a Boolean,
-        # TODO: Do we need to return None is off case senerios?
-                return False
+        if self.infection == None:
+            self.is_vaccinated = True
+        # TODO: Do we need to return None is off case senerios? 
+        # add apart of persons test a way to verify vaccination state        
         return True
 
 
 #tests random floats in terminal
 # test_chance = random.uniform(0, 1)
 # print(test_chance)
-#tests moved into test.py to reorganize code
 #Thanks pynative for teaching me random.uniform
+
+#tests moved into test.py to reorganize code
