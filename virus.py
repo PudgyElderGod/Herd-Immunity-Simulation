@@ -6,8 +6,10 @@ class Virus(object):
         self.repro_rate = repro_rate
         self.mortality_rate = mortality_rate
 
+
 #Tests virus attributes
 # virus = Virus("TB", 0.6, 0.3)
 # print(virus.name)
 # print(virus.mortality_rate)
 # print(virus.repro_rate)
+#other tests are moved into test.py
