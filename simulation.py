@@ -133,7 +133,7 @@ class Simulation(object):
             chance = random.uniform(0, 1)
             if chance < random_person.repro_rate:
                 self.newly_infected.append(random_person._id)
-        Logger(Simulation) #The file_name passed should be the full file name of the file that the logs will be written to
+        Logger("simulation.py")
         
         
 
