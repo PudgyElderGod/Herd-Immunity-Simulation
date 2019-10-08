@@ -50,7 +50,6 @@ class Simulation(object):
 
             Returns:
                 list: A list of Person objects.
-
         '''    
         # TODO: Look over logic, Make Tests!!
         for person in range(0, self.pop_size * self.vacc_percentage):
