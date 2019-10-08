@@ -85,13 +85,8 @@ def test_did_survive_infection():
 
 
 '''Simulation Class Tests! (simulation.py)'''
-def test_logger():
-    pass
 
 def test_population():
-    pass
-
-def test_pop_size():
     pass
 
 def test_next_person_id():
@@ -100,28 +95,20 @@ def test_next_person_id():
 def test_virus():
     pass
 
-def test_initial_infected():
-    pass
-
 def test_total_infected():
     pass
 
 def test_current_infected():
     pass
 
-def test_vacc_percentage():
-    pass
-
 def test_total_dead():
     pass
 
-def test_file_name():
-    pass
-
-def test_newly_infected():
-    pass
 
 def test_create_population():
+    # This is a test: Person objects matche specifications of the simulation 
+        # (correct number of people in the population, correct percentage of
+        # people vaccinated, correct number of initially infected people).
     pass
 
 def test_simulation_should_continue():
@@ -142,7 +129,6 @@ def test_infect_newly_infected():
 
 '''Virus Class Tests! (virus.py)'''
 def test_virus_instantiation():
-    #TODO: Create your own test that models the virus you are working with
     '''Check to make sure that the virus instantiator is working.'''
     virus = Virus("HIV", 0.8, 0.3)
     assert virus.name == "HIV"
@@ -150,6 +136,11 @@ def test_virus_instantiation():
     assert virus.mortality_rate == 0.3
 
 
+def our_test_virus_instantiation():
+    virus = Virus("Tuberculosis", 0.32, 0.67)
+    assert virus.name == "Tuberculosis"
+    assert virus.repro_rate == 0.32
+    assert virus.mortality_rate == 0.67
 ''' Example tests!! '''
 '''
 def test_hero_instance():

@@ -1,7 +1,7 @@
 # Herd Immunity Simulation by Aloysha 'Thom' d'Olanie & Anthony Sean Protho
 # Virus Name: "Tuberculosis" Moratlity Rate: "67%" Repo Rate: "5.6(or 32.94%)"
 
-We're going to create a basic simulation of herd immunity by modeling how a virus moves through a population where some (but not all) of a population is vaccinated against this virus.
+We created a basic simulation of herd immunity by modeling how a virus moves through a population where some (but not all) of a population is vaccinated against this virus.
 
 * During every time step of the simulation, **every sick person** should randomly interact with **100 other people** in the population. The chance of a sick person infecting a person that they interact with is the virus's reproductive rate.  Example: if a virus has a reproductive rate of 15, then, on average, a sick person should infect 15 of the 100 people they interact with during that time step.
 
@@ -24,7 +24,7 @@ The program is designed to be run from the command line.  You can do this by run
 separated by spaces:
  {population size} {vacc_percentage} {virus_name} {mortality_rate} {repro_rate} {optional: number of people initially infected (default is 1)}
 
- Let's look at an example:
+ Here's an example:
  * Population Size: 100,000
  * Vaccination Percentage: 90%
  * Virus Name: Ebola

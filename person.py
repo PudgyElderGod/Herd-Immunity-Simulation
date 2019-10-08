@@ -32,7 +32,6 @@ class Person(object):
         return True
 
 
-
 #tests random floats in terminal
 # test_chance = random.uniform(0, 1)
 # print(test_chance)
