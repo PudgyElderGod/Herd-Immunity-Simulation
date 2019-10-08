@@ -17,8 +17,8 @@ class Logger(object):
         # TIP: Use 'w' mode when you open the file. For all other methods, use
         # the 'a' mode to append a new log to the end, since 'w' overwrites the file.
         # NOTE: Make sure to end every line with a '/n' character to ensure that each
-        # event logged ends up on a separate line!
-        metadata = f'{pop_size}, {vaccination_percentage}, {virus_name}, {mortality_rate}, {basic_repro_num}'
+        # event logged ends up on ;a separate line!
+        metadata = f'{pop_size}, {vacc_percentage}, {virus_name}, {mortality_rate}, {basic_repro_num}'
 
         data_file = open(self.file_name, 'w')
         data_file.write(metadata)

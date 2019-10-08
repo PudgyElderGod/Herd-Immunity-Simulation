@@ -29,8 +29,8 @@ class Person(object):
         if self.infection == None:
             self.is_vaccinated = True
         # TODO: Do we need to return None is off case senerios? 
-        # add apart of persons test a way to verify vaccination state        
         return True
+
 
 
 #tests random floats in terminal
