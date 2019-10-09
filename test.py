@@ -103,7 +103,7 @@ def test_total_dead():
 
 
 def test_create_population():
-    # This is a test: Person objects matche specifications of the simulation 
+    # This is a test: Person objects match specifications of the simulation 
         # (correct number of people in the population, correct percentage of
         # people vaccinated, correct number of initially infected people).
     pass

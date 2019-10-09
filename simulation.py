@@ -70,18 +70,20 @@ class Simulation(object):
 
     def _simulation_should_continue(self):
         ''' The simulation should only end if the entire population is dead
-        or everyone is vaccinated.
+        or everyone is vaccinated, or if no one is infected
 
             Returns:
                 bool: True for simulation should continue, False if it should end.
         '''
         for person in self.population:
-            if person.is_alive == True:
-                return True
-            elif person.is_vaccinated == True or person.is_vaccinated == None:
+            if person.is_alive == False:
+                return False
+            elif person.is_vaccinated == True:
+                return False
+            elif person.is_vaccinated == None:
                 return False
             else:
-                return False
+                return True
 
     def run(self):
         ''' This method should run the simulation until all requirements for ending
