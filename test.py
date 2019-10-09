@@ -86,9 +86,6 @@ def test_did_survive_infection():
 
 '''Simulation Class Tests! (simulation.py)'''
 
-def test_population():
-    pass
-
 def test_next_person_id():
     pass
 

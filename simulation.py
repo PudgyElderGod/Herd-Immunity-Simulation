@@ -52,15 +52,18 @@ class Simulation(object):
                 list: A list of Person objects.
         '''    
         # TODO: Look over logic, Make Tests!!
-        for person in range(0, self.pop_size * self.vacc_percentage):
-            person.is_vaccinated = True
+        vacc = self.pop_size * self.vacc_percentage
+        infec = self.pop_size * self.initial_infected
+        for i in range(0, int(vacc)):
+            person = Person(i, True, None)
             self.population.append(person)
-        for person in range(0, self.pop_size * self.initial_infected):
+        for i in range(int(vacc), int(infec)):
             if person.is_vaccinated == False:
-                person.infection = Virus(virus.name, virus.repro_rate, virus.mortality_rate)
+                person = Person(i, False, virus)
                 self.population.append(person)
-        for person in range(0, self.pop_size):
+        for i in range(0, self.pop_size):
             if person.is_vaccinated == None:
+                person = Person(i)
                 self.population.append(person)
 
         return self.population
@@ -75,6 +78,8 @@ class Simulation(object):
         for person in self.population:
             if person.is_alive == True:
                 return True
+            elif person.is_vaccinated == True or person.is_vaccinated == None:
+                return False
             else:
                 return False
 
@@ -87,8 +92,7 @@ class Simulation(object):
 
         while self._simulation_should_continue():
             time_step_counter += 1
-            self.time_step()
-            print('The simulation has ended after {time_step_counter} turns.'.format(time_step_counter))
+            print('The simulation has ended after {} turns.'.format(time_step_counter))
 
     def time_step(self):
         ''' This method should contain all the logic for computing one time step
@@ -147,12 +151,12 @@ class Simulation(object):
 
 if __name__ == "__main__":
     params = sys.argv[1:]
-    virus_name = str(params[0])
-    repro_num = float(params[1])
-    mortality_rate = float(params[2])
+    pop_size = int(params[0])
+    vacc_percentage = float(params[1])
 
-    pop_size = int(params[3])
-    vacc_percentage = float(params[4])
+    virus_name = str(params[2])
+    repro_num = float(params[3])
+    mortality_rate = float(params[4])
 
     if len(params) == 6:
         initial_infected = int(params[5])
