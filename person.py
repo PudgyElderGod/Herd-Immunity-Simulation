@@ -8,7 +8,7 @@ from virus import Virus
 class Person(object):
     ''' Person objects will populate the simulation. '''
 
-    def __init__(self, _id, is_vaccinated=None, infection=None):
+    def __init__(self, _id, is_vaccinated, infection=None):
         ''' We start out with is_alive = True, because we don't make vampires or zombies.
         All other values will be set by the simulation when it makes each Person object.
 
@@ -24,12 +24,13 @@ class Person(object):
     def did_survive_infection(self):
         chance = random.uniform(0, 1)
         if chance < self.infection.mortality_rate:
+            self.is_alive = False
             return False
         # Only called if infection attribute is not None.
-        if self.infection == None:
+        else:
+            self.infection = None
             self.is_vaccinated = True
-        # TODO: Do we need to return None is off case senerios? 
-        return True
+            return True
 
 
 #tests random floats in terminal

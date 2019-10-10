@@ -18,7 +18,7 @@ class Logger(object):
         # the 'a' mode to append a new log to the end, since 'w' overwrites the file.
         # NOTE: Make sure to end every line with a '/n' character to ensure that each
         # event logged ends up on ;a separate line!
-        metadata = f'{pop_size}, {vacc_percentage}, {virus_name}, {mortality_rate}, {basic_repro_num}'
+        metadata = f'{pop_size}, {vacc_percentage}, {virus_name}, {mortality_rate}, {basic_repro_num}\n'
 
         data_file = open(self.file_name, 'w')
         data_file.write(metadata)
@@ -61,14 +61,14 @@ class Logger(object):
         # should be False.  Otherwise, did_die_from_infection should be True.
         # Append the results of the infection to the logfile
         with open(self.file_name, mode = 'a') as file:
-            file.write('Infection Survival: /n')
+            file.write('Infection Survival: ')
 
             if did_die_from_infection:
-                status = f'{person._id} has perished.'
+                status = f'{person._id} has perished.\n'
                 file.write(status)
 
             else:
-                status = f'{person._id} has survived.'
+                status = f'{person._id} has survived.\n'
                 file.write(status)
 
 
@@ -87,6 +87,7 @@ class Logger(object):
         # TODO: Finish this method. This method should log when a time step ends, and a
         # new one begins.
         # NOTE: Here is an opportunity for a stretch challenge!
-        pass
+        with open(self.file_name, mode = 'a') as file:
+            file.write(f'Time step {time_step_number} ended, beginning {time_step_number+1}\n')
 
 log = Logger('metadata')
