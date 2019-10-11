@@ -27,7 +27,7 @@ class Simulation(object):
 
         All arguments will be passed as command-line arguments when the file is run.
         HINT: Look in the if __name__ == "__main__" function at the bottom.
-        '''     
+        '''
         self.population = [] # List of Person objects
         self.pop_size = pop_size # Int
         self.next_person_id = 0 # Int
@@ -50,7 +50,7 @@ class Simulation(object):
 
             Returns:
                 list: A list of Person objects.
-        '''    
+        '''
         # TODO: Look over logic, Make Tests!!
         vacc = int(self.pop_size * self.vacc_percentage)
         infec = self.initial_infected + vacc
@@ -121,7 +121,7 @@ class Simulation(object):
         for infected in inf_list:
             did_die = not infected.did_survive_infection()
             self.logger.log_infection_survival(infected, did_die)
-        
+
         self._infect_newly_infected()
 
     def interaction(self, person, random_person):
@@ -146,7 +146,7 @@ class Simulation(object):
             if chance < person.infection.repro_rate:
                 self.newly_infected.append(random_person)
                 self.logger.log_interaction(person, random_person, True, False, True)
-        
+
 
     def _infect_newly_infected(self):
         ''' This method should iterate through the list of ._id stored in self.newly_infected

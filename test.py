@@ -26,24 +26,41 @@ def capture_console_output(function_body):
  # TODO: Write a test suite for Logger class to make sure each method is working
     # as expected.
 
-def test_file_name_value():
-    pass
+def test_write_metadata():
+    file_name = 'log.txt'
+    log = Logger(file_name)
 
-def test_writen_metadata():
-    pass
+    log.write_metadata(1500, 25, 'Ebola', .5, 2)
+
 
 def test_log_interaction():
-    pass
+    file_name = 'log.txt'
+    log = Logger(file_name)
+
+    person = Person(3, True, None)
+    random_person = Person(1, False, None)
+
+    log.log_interaction(person, random_person, True, False, True)
+
 
 def test_log_infection_survival():# the params are: self, person, did_die_from_infection
     #however these params are not necissarily needed
-    pass
+    file_name = 'log.txt'
+    log = Logger(file_name)
+
+    person = Person(5, True, None)
+
+    log.log_infection_survival(person, True)
+
 
 def test_log_time_step():
-    pass
+    file_name = 'log.txt'
+    log = Logger(file_name)
+
+    log.log_time_step(5)
 
 
-'''Person Class Tests! (person.py)''' 
+'''Person Class Tests! (person.py)'''
 def test_is_alive():
     Person.is_alive = True
     assert Person.is_alive
@@ -97,7 +114,7 @@ def test_total_dead():
 
 
 def test_create_population():
-    # This is a test: Person objects match specifications of the simulation 
+    # This is a test: Person objects match specifications of the simulation
         # (correct number of people in the population, correct percentage of
         # people vaccinated, correct number of initially infected people).
     pass
@@ -176,7 +193,7 @@ def test_hero_ability_attack_mean_value():
 
     total_attack = 0
 
-    for _ in range(iterations): 
+    for _ in range(iterations):
         attack_value = athena.attack()
         assert attack_value >= 0 and attack_value <= strength
         total_attack += attack_value
